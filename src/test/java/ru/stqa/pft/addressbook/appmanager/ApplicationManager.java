@@ -32,7 +32,7 @@ public class ApplicationManager {
         }
         wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         wd.manage().window().maximize();
-        wd.get("http://addressbook/group.php");
+        wd.get("http://addressbook");
         groupHelper = new GroupHelper(wd);
         contactHelper = new ContactHelper(wd);
         navigationHelper = new NavigationHelper(wd);
