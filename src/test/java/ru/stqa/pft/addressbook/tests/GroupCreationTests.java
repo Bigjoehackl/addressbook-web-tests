@@ -4,9 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class GroupCreationTests extends TestBase {
@@ -20,16 +18,18 @@ public class GroupCreationTests extends TestBase {
         List<GroupData> after = app.getGroupHelper().getGroupList();
         Assert.assertEquals(after.size(), before.size() + 1);
 
-
-/*        //Способ сравнения с использованием цикла
+        /*
+        //Способ сравнения с использованием цикла
         int max = 0;
         for (GroupData g : after) {
             if (g.getId() > max) {
                 max = g.getId();
             }
-        }*/
+         }*/
 
- /*       //Способ сравнения с использованием компоратора
+
+        /*
+        //Способ сравнения с использованием компоратора
         Comparator<? super GroupData> byId = new Comparator<GroupData>() {
             @Override
             public int compare(GroupData o1, GroupData o2) {
@@ -39,7 +39,8 @@ public class GroupCreationTests extends TestBase {
         int max = after.stream().max(byId).get().getId();*/
 
 
-    /*    //Способ сравнения с помощью лямбда выражений
+        /*
+        //Способ сравнения с помощью лямбда выражений
         int max = after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId();
         group.setId(max);*/
 
