@@ -14,6 +14,7 @@ dependencies {
     testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     compile 'mysql:mysql-connector-java:5.1.38'
     compile 'org.hibernate:hibernate-core:5.1.0.Final'
+    compile 'org.robotframework:robotframework:3.0'
 }
 
 task testGroups(type: Test) {
@@ -48,4 +49,11 @@ task testContacts(type: Test) {
     if (project.hasProperty('verifyUI')) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
+}
+
+task rf(type: JavaExec) {
+    main = 'org.robotframework.RobotFramework'
+    classpath = sourceSets.test.runtimeClasspath
+    args '--outputdir', 'build/rf-report'
+    args 'src/test/resources/rf'
 }
